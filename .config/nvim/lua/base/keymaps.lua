@@ -5,15 +5,9 @@ local keymap = vim.keymap
 local helpers = require("base.helpers")
 
 local nmap = helpers.nmap
-local vmap = helpers.vmap
-local xmap = helpers.xmap
-local omap = helpers.omap
 local noremap = helpers.noremap
-local nnoremap = helpers.nnoremap
-local inoremap = helpers.inoremap
 local vnoremap = helpers.vnoremap
 local xnoremap = helpers.xnoremap
-local onoremap = helpers.onoremap
 -- Set <space> as the leader key
 -- See `:help mapleader`
 vim.g.mapleader = " "
@@ -107,7 +101,7 @@ keymap.set("n", "<C-n", "<cmd> NvimTreeFocus <CR>")
 --
 -- Telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+-- vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sf", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
@@ -130,6 +124,12 @@ vim.keymap.set("n", "<leader>B", function()
 	dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end, { desc = "Debug: Set Breakpoint" })
 
+-- Octo stuff
+keymap.set("n", "<leader>opr", "<cmd>Octo pr list<cr>")
+keymap.set("n", "<leader>ors", "<cmd>Octo review start<cr>")
+keymap.set("n", "<leader>orr", "<cmd>Octo review resume<cr>")
+keymap.set("n", "<leader>orc", "<cmd>Octo review commit<cr>")
+keymap.set("n", "<leader>ord", "<cmd>Octo review submit<cr>")
 -- Nvim git
 
 keymap.set("n", "<leader>gb", function()
