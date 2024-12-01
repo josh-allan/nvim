@@ -11,7 +11,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"pyright", -- LSP for python
-				"ruff-lsp", -- linter for python (includes flake8, pep8, etc.)
+				"ruff", -- linter for python (includes flake8, pep8, etc.)
 				"debugpy", -- debugger
 				"black", -- formatter
 				"isort", -- organize imports
@@ -39,25 +39,25 @@ return {
 		"letieu/wezterm-move.nvim",
 		keys = { -- Lazy loading, don't need call setup() function
 			{
-				"<C-h>",
+				"<C-S-h>",
 				function()
 					require("wezterm-move").move("h")
 				end,
 			},
 			{
-				"<C-j>",
+				"<C-S-j>",
 				function()
 					require("wezterm-move").move("j")
 				end,
 			},
 			{
-				"<C-k>",
+				"<C-S-k>",
 				function()
 					require("wezterm-move").move("k")
 				end,
 			},
 			{
-				"<C-l>",
+				"<C-S-l>",
 				function()
 					require("wezterm-move").move("l")
 				end,
@@ -680,6 +680,22 @@ return {
 					desc = "Quickfix List (Trouble)",
 				},
 			},
+		},
+		{
+			"olexsmir/gopher.nvim",
+			ft = "go",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"nvim-treesitter/nvim-treesitter",
+				"mfussenegger/nvim-dap", -- (optional) only if you use `gopher.dap`
+			},
+			build = function()
+				vim.cmd.GoInstallDeps()
+			end,
+			---@type gopher.Config
+			opts = function()
+				require("configs.gopher")
+			end,
 		},
 	},
 }

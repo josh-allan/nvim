@@ -68,5 +68,18 @@ return {
 
 		-- Install golang specific config
 		require("dap-go").setup()
+		local repl = require("dap.repl")
+		repl.commands = vim.tbl_extend("force", repl.commands, {
+
+			-- Add a new alias for existing commands
+			exit = { "exit", ".exit" },
+
+			-- Add new commands
+			custom_commands = {
+				[".print"] = function(v)
+					repl.execute(v)
+				end,
+			},
+		})
 	end,
 }

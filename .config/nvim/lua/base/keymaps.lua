@@ -133,6 +133,10 @@ keymap.set("n", "<leader>ors", "<cmd>Octo review start<cr>")
 keymap.set("n", "<leader>orr", "<cmd>Octo review resume<cr>")
 keymap.set("n", "<leader>orc", "<cmd>Octo review commit<cr>")
 keymap.set("n", "<leader>ord", "<cmd>Octo review submit<cr>")
+--
+-- Gopher
+keymap.set("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>")
+keymap.set("n", "<leader>gie", "<cmd> GoIfErr <CR>")
 -- Nvim git
 
 keymap.set("n", "<leader>gb", function()
