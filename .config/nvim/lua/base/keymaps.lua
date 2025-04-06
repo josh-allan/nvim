@@ -1,4 +1,4 @@
-local helpers = require("config.helpers")
+local helpers = require("base.helpers")
 
 local nmap = helpers.nmap
 local noremap = helpers.noremap
