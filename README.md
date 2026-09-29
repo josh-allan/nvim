@@ -1,4 +1,4 @@
-# josh_nvim
+# Neovim Config
 
 Neovim 0.12+ config using the built-in `vim.pack` plugin manager.
 
