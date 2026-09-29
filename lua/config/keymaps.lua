@@ -21,12 +21,6 @@ map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]ui
 
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- Disable arrow keys in normal mode
-map("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-map("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-map("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-map("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
-
 map("n", "<S-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 map("n", "<S-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 map("n", "<S-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
