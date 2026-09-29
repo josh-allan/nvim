@@ -5,12 +5,13 @@ vim.pack.add({ { src = "https://github.com/saghen/blink.cmp", version = vim.vers
 require("blink.cmp").setup({
 	keymap = {
 		preset = "default",
-		["<C-CR>"] = { "accept", "fallback" },
+		-- Only accepts an item picked with the arrows; otherwise inserts a newline.
+		["<CR>"] = { "accept", "fallback" },
 		["<C-l>"] = { "snippet_forward", "fallback" },
 		["<S-Tab>"] = { "snippet_backward", "fallback" },
 	},
 	completion = {
-		list = { selection = { preselect = true, auto_insert = false } },
+		list = { selection = { preselect = false, auto_insert = false } },
 		documentation = { auto_show = true },
 	},
 	sources = { default = { "lazydev", "lsp", "path", "snippets", "buffer" },

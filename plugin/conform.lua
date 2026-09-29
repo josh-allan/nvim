@@ -14,10 +14,14 @@ require("conform").setup({
 	end,
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "ruff" },
-		terraform = { "terraform fmt" },
-		shell = { "shfmt" },
-		go = { "goimports" },
+		python = { "ruff_organize_imports", "ruff_format" },
+		go = { "goimports", "gofmt" },
+		sh = { "shfmt" },
+		bash = { "shfmt" },
+		fish = { "fish_indent" },
+		json = { "jq" },
+		terraform = { "tofu_fmt", "terraform_fmt", stop_after_first = true },
+		["terraform-vars"] = { "tofu_fmt", "terraform_fmt", stop_after_first = true },
 	},
 })
 

@@ -16,7 +16,8 @@ local ELBOW = "╰"
 ---@return string
 function M.line_number(lnum, relnum)
   local number = (vim.wo.relativenumber and relnum ~= 0) and relnum or lnum
-  local width = math.max(vim.wo.numberwidth, #tostring(vim.api.nvim_buf_line_count(0)) + 1)
+  -- 'numberwidth' counts a separator column; drop it so no gap opens at the left edge.
+  local width = math.max(vim.wo.numberwidth - 1, #tostring(vim.api.nvim_buf_line_count(0)))
   return string.format("%" .. width .. "d", number)
 end
 

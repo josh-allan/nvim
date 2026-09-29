@@ -63,6 +63,10 @@ opt.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB
 opt.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 opt.shiftwidth = 4 -- Number of spaces inserted when indenting
 
+-- Treat variable files as plain Terraform so terraformls, treesitter and
+-- conform all use their `terraform` config. Neovim's default is `terraform-vars`.
+vim.filetype.add({ extension = { tfvars = "terraform" } })
+
 --- reopen to the last known position (if we know this)
 vim.api.nvim_create_autocmd("BufReadPost", {
 	pattern = { "*" },

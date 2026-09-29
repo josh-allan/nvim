@@ -40,6 +40,8 @@ require("mason-tool-installer").setup({
 		"lua_ls",
 		"marksman",
 		"terraformls",
+		"terraform", -- fallback for conform when tofu is not installed
+		"shfmt",
 		"taplo",
 		"ruff",
 		"black",
