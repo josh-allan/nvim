@@ -9,6 +9,7 @@ map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "New tab" })
 map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close tab" })
 map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Next tab" })
 map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Previous tab" })
+map("n", "<leader>pu", "<cmd>lua vim.pack.update()<CR>", { desc = "Update all pack plugins" })
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 map("n", "[d", function()
