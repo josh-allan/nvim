@@ -2,7 +2,7 @@
 -- Coaches faster Vim: hints at (or blocks) inefficient keystrokes as you edit.
 vim.pack.add({ "https://github.com/josh-allan/vim2pro" })
 require("vim2pro").setup({
-	coach = "hint",
+	coach = "off",
 	hint_duration_ms = 4000,
 	hint_cooldown_s = 120, -- per detector
 	enforce_max_blocks = 5,
