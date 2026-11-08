@@ -134,10 +134,6 @@
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
-    "markview.nvim": {
-      "rev": "49d2cf7ced872db74083a144ded1f94fe224d09a",
-      "src": "https://github.com/OXY2DEV/markview.nvim"
-    },
     "mason-lspconfig.nvim": {
       "rev": "b3298993d55fa194279b5eb9dbfb3a43da65cadf",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"

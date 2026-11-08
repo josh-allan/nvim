@@ -1,8 +1,7 @@
--- github.com/folke/trouble.nvim, github.com/OXY2DEV/markview.nvim
--- Diagnostics list and in-buffer markdown rendering
+-- github.com/folke/trouble.nvim
+-- Diagnostics list
 vim.pack.add({
 	"https://github.com/folke/trouble.nvim",
-	"https://github.com/OXY2DEV/markview.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
 })
 
