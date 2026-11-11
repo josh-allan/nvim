@@ -4,6 +4,8 @@ map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 map("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>se", "<C-w>=", { desc = "Equalize splits" })
 map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close split" })
+map("n", "<M-\\>", "<cmd>rightbelow vsplit<CR>", { desc = "Split window to the right" })
+map("n", "<M-->", "<cmd>rightbelow split<CR>", { desc = "Split window below" })
 
 map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "New tab" })
 map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close tab" })
