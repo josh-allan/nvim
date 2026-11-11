@@ -27,6 +27,55 @@ map("n", "<S-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 map("n", "<S-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 map("n", "<S-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+local directions = {
+	h = "left",
+	j = "down",
+	k = "up",
+	l = "right",
+}
+
+local function focus_rex(direction)
+	local session = vim.env.REX_SESSION
+	if not session or session == "" then
+		return
+	end
+
+	local command = {
+		"rex",
+		"api",
+		"call",
+		"--session",
+		session,
+		"session.focus_direction",
+		vim.json.encode({ direction = direction, wrap = false }),
+	}
+	local ok, err = pcall(vim.system, command, { text = true }, function(result)
+		if result.code ~= 0 then
+			vim.schedule(function()
+				vim.notify("Rex pane focus failed: " .. (result.stderr or ""), vim.log.levels.WARN)
+			end)
+		end
+	end)
+	if not ok then
+		vim.notify("Rex pane focus failed: " .. tostring(err), vim.log.levels.WARN)
+	end
+end
+
+for key, direction in pairs(directions) do
+	vim.keymap.set("n", "<D-" .. key .. ">", function()
+		local current = vim.api.nvim_get_current_win()
+		local neighbor_number = vim.fn.winnr(key)
+		if neighbor_number ~= 0 then
+			local neighbor = vim.fn.win_getid(neighbor_number)
+			if neighbor ~= current then
+				vim.api.nvim_set_current_win(neighbor)
+				return
+			end
+		end
+		focus_rex(direction)
+	end, { desc = "Move focus " .. direction .. " across Neovim and Rex" })
+end
+
 map("", "Y", "y$", { silent = true, desc = "Yank to end of line" })
 -- Keep the cursor where it was after a visual yank
 map("v", "y", "ygv<Esc>", { silent = true })
