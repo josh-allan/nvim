@@ -22,7 +22,8 @@ for _, cmd in ipairs({ "Telescope", "Neogit", "DiffviewOpen", "Trouble", "VenvSe
 	check("command " .. cmd, vim.fn.exists(":" .. cmd) == 2)
 end
 
-check("colorscheme", vim.g.colors_name == "catppuccin-mocha")
+local theme_ok, theme = pcall(dofile, vim.fn.expand("~/.config/theme/nvim.lua"))
+check("colorscheme", vim.g.colors_name == (theme_ok and theme.colorscheme or "catppuccin-mocha"))
 for _, lhs in ipairs({ "<Space>f", "<Space>dc", "<Space><Space>", "<Space>e", "<Space>xx", "<Space>gb", "<M-h>" }) do
 	check("map " .. lhs, vim.fn.maparg(lhs, "n") ~= "")
 end

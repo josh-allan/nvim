@@ -54,11 +54,13 @@ local function set_statuscolumn_hl()
   fold.bg = vim.api.nvim_get_hl(0, { name = "CursorLine", link = false }).bg
   vim.api.nvim_set_hl(0, "CursorLineFold", fold)
 
-  -- One palette step below LineNr's surface1, so the run down a wrapped line
-  -- reads quieter than the numbers it hangs off.
+  -- The run down a wrapped line reads quieter than the numbers it hangs off. Catppuccin
+  -- has a palette step for that (surface0); other themes get NonText.
   local ok, palettes = pcall(require, "catppuccin.palettes")
-  if ok then
+  if ok and (vim.g.colors_name or ""):find("^catppuccin") then
     vim.api.nvim_set_hl(0, "StatuscolumnWrap", { fg = palettes.get_palette().surface0 })
+  else
+    vim.api.nvim_set_hl(0, "StatuscolumnWrap", { link = "NonText" })
   end
 end
 
